@@ -1,0 +1,20 @@
+Team Name: The STAARS
+
+
+History:
+- Academic Problems we Experience: 
+    - Stored large databases of Student Records
+    - Catching up on missed lectures from notes and videos
+    - Compile messy notes into clear ideas/images
+    - long waiting time for feedback, immediate feedback is more valuable to build skill. (CHOSEN PROBLEM)
+
+
+Clear problem statement:  Study buddy, finds books with excersizes similar to your homeworks and exams.
+
+translate books from other languages.
+
+other additions:
+- Badges
+
+
+TBuddy - Your AI TA
