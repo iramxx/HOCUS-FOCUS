@@ -1,116 +1,128 @@
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;            /* no scrollbars */
-  }
-  
-  .vertical-title {
-    font-family: 'Fredoka One', cursive;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 100px;
-    background-color: #007bff;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 5rem;
-    text-orientation: upright;
-    letter-spacing: 0.1rem;
-    z-index: 1000;
-  }
-  .left-title  { left:  0; writing-mode: vertical-lr; }
-  .right-title { right: 0; writing-mode: vertical-rl; }
-  
-  .main-wrapper {
-    margin: 0 100px;             /* match vertical‐title width */
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  
-  .home-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .game-container .game-topbar {
-    background: linear-gradient(135deg, #222 0%, #000 100%);
-    color: #fff;
-    text-align: center;
-    height: 80px;
-    line-height: 80px;
-    font-size: 1.75rem;
-    font-weight: 600;
-    flex: 0 0 80px;
-    width: 100%;
-    
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-    
-    /* Lift it off the page */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    
-    /* Add a little padding so the text isn’t jammed */
-    padding: 0 1rem;
-    
-    transition: background 0.3s, transform 0.1s;
-  }
-  
-  .game-container .game-topbar:hover {
-    background: linear-gradient(135deg, #333 0%, #111 100%);
-    transform: translateY(-2px);
-  }
-  
-  .game-container .game-image-area {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-  }
-  
-  #scene {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-  }
-  
-  #hint-canvas {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
-  
-  .primary-btn {
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding: 0.75rem 2rem;
-    background: #17a2b8;           /* teal for good contrast */
-    color: #fff;                   /* white text */
-    text-decoration: none;         /* no underline */
-    border: none;
-    border-radius: 8px;            /* rounded corners */
-    font-size: 1.1rem;
-    font-weight: 600;
-    font-family: 'Nunito', sans-serif;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-  }
-  
-  .primary-btn:hover {
-    background: #138496;           /* darker on hover */
-    transform: translateY(-2px);   /* subtle lift */
-  }
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;            /* no scrollbars */
+}
+
+.vertical-title {
+  font-family: 'Fredoka One', cursive;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  background-color: #007bff;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 5rem;
+  text-orientation: upright;
+  letter-spacing: 0.1rem;
+  z-index: 1000;
+}
+.left-title  { left:  0; writing-mode: vertical-lr; }
+.right-title { right: 0; writing-mode: vertical-rl; }
+
+.main-wrapper {
+  margin: 0 100px;             /* match vertical‐title width */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.home-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.game-container .game-topbar {
+  background: linear-gradient(135deg, #222 0%, #000 100%);
+  color: #fff;
+  text-align: center;
+  height: 80px;
+  line-height: 80px;
+  font-size: 1.75rem;
+  font-weight: 600;
+  flex: 0 0 80px;
+  width: 100%;
+
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+
+  /* Lift it off the page */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+
+  /* Add a little padding so the text isn’t jammed */
+  padding: 0 1rem;
+
+  /* transition: background 0.3s, transform 0.1s; */
+}
+/* 
+.game-container .game-topbar:hover {
+  background: linear-gradient(135deg, #333 0%, #111 100%);
+  transform: translateY(-2px);
+} */
+
+.game-container .game-image-area {
+  height: calc(100vh - 80px); /* fit under the top bar */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background: black;
+}
+
+#scene {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  width: auto;
+  height: auto;
+  /* REMOVE absolute positioning */
+}
+
+#hint-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2; /* Ensure it's above the image */
+}
+
+.primary-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background: #17a2b8;           /* teal for good contrast */
+  color: #fff;                   /* white text */
+  text-decoration: none;         /* no underline */
+  border: none;
+  border-radius: 8px;            /* rounded corners */
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.primary-btn:hover {
+  background: #138496;           /* darker on hover */
+  transform: translateY(-2px);   /* subtle lift */
+}
