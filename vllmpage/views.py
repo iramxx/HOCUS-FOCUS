@@ -2,6 +2,10 @@ from django.shortcuts import render
 from google.genai import types
 from google import genai
 import json
+import random as rand
+from django.templatetags.static import static
+
+MAX = 50
 
 def home(request):
     return render(request, "vllmpage/home.html")
@@ -17,7 +21,7 @@ response = client.models.generate_content(
     contents=[
         types.Part.from_bytes(
         data=image_bytes,
-        mime_type='image/jpeg',
+        mime_type='image/png',
         ),
         """Give ONE random object from this image alongside it's coordinate of the center of the box in a json format. 
         The coordinates should be given as ratios of the image's dimensions.
@@ -36,10 +40,12 @@ for idx, char in enumerate(response.text):
 objval = response.text[indices[0]: indices[1]+1]
 objvalj = json.loads(objval)
 print(objvalj['x'])
+n = rand.randint(0,MAX)
+print(n)
 def game(request):
     context={
         "obj_name": objvalj['object_name'],
-        "image": "{% static 'vllmpage/images/dummy.jpg' %}",
+        "image": static("vllmpage/images/dummy.png"),
         "xcoord":objvalj['x'],
         "ycoord":objvalj['y'],
     }
