@@ -1,0 +1,14 @@
+{% extends "vllmpage/layout.html" %}
+{% load static %}
+
+{% block content %}
+<div class="game-container">
+    <div class="game-topbar">
+      Find: <strong>{{ object_name }}</strong>
+    </div>
+    <div class="game-image-area">
+      <img id="scene" src="{% static 'vllmpage/images/dummy.png' %}" alt="Scene">
+      <canvas id="hint-canvas"></canvas>
+    </div>
+  </div>
+{% endblock %}
