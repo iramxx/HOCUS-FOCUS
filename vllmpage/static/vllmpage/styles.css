@@ -1,4 +1,3 @@
-/* 1) Prevent any page scrolling and ensure full‐height containers */
 html, body {
     margin: 0;
     padding: 0;
@@ -6,7 +5,6 @@ html, body {
     overflow: hidden;            /* no scrollbars */
   }
   
-  /* 2) Keep your vertical bars exactly as before */
   .vertical-title {
     font-family: 'Fredoka One', cursive;
     position: fixed;
@@ -27,7 +25,6 @@ html, body {
   .left-title  { left:  0; writing-mode: vertical-lr; }
   .right-title { right: 0; writing-mode: vertical-rl; }
   
-  /* 3) Main content area fills the gap between side‐bars, no scroll */
   .main-wrapper {
     margin: 0 100px;             /* match vertical‐title width */
     height: 100%;
@@ -36,7 +33,6 @@ html, body {
     overflow: hidden;
   }
   
-  /* 4) Home page centering (still works) */
   .home-content {
     flex: 1;
     display: flex;
@@ -45,7 +41,6 @@ html, body {
     align-items: center;
   }
   
-  /* 5) Game container stacks topbar + image area */
   .game-container .game-topbar {
     background: linear-gradient(135deg, #222 0%, #000 100%);
     color: #fff;
@@ -57,7 +52,6 @@ html, body {
     flex: 0 0 80px;
     width: 100%;
     
-    /* Rounded bottom corners to soften the edge */
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     
@@ -67,7 +61,6 @@ html, body {
     /* Add a little padding so the text isn’t jammed */
     padding: 0 1rem;
     
-    /* Transition for hover effect */
     transition: background 0.3s, transform 0.1s;
   }
   
@@ -76,7 +69,6 @@ html, body {
     transform: translateY(-2px);
   }
   
-  /* 7) Image area fills the rest; remove padding for max space */
   .game-container .game-image-area {
     flex: 1;
     position: relative;
@@ -87,7 +79,6 @@ html, body {
     padding: 0;
   }
   
-  /* 8) Make the image itself cover the available area without scrolling */
   #scene {
     width: 100%;
     height: 100%;
@@ -95,7 +86,6 @@ html, body {
     display: block;
   }
   
-  /* 9) Hint canvas overlays exactly on top */
   #hint-canvas {
     position: absolute;
     top: 0; left: 0;
@@ -104,3 +94,23 @@ html, body {
     pointer-events: none;
   }
   
+  .primary-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 2rem;
+    background: #17a2b8;           /* teal for good contrast */
+    color: #fff;                   /* white text */
+    text-decoration: none;         /* no underline */
+    border: none;
+    border-radius: 8px;            /* rounded corners */
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  
+  .primary-btn:hover {
+    background: #138496;           /* darker on hover */
+    transform: translateY(-2px);   /* subtle lift */
+  }
