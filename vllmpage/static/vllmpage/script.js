@@ -6,7 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
   
     // Dummy target in image-pixel coordinates (would come from API)
-    const target = { x: "{{ycoord}}", y: "{{xcoord}}" };
+    
+    
+    const img = document.getElementById('scene');
+    const target = { x: xcoord * img.naturalWidth, y: ycoord * img.naturalHeight};
+    console.log(target.x, target.y);
+    
     let misses = 0;
     let targetDiv;
   

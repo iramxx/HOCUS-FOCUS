@@ -8,7 +8,7 @@ def home(request):
 
 
 
-with open("C:/Users/assaf/Desktop/GDG_HACK/vllmpage/static/vllmpage/images/dummy.png", 'rb') as f:
+with open("./vllmpage/static/vllmpage/images/dummy.png", 'rb') as f:
     image_bytes = f.read()
 
 client = genai.Client(api_key="AIzaSyAjPSVPSC9cPrKpsraxSkJvtdsn7WY5UpE")
@@ -35,13 +35,13 @@ for idx, char in enumerate(response.text):
 
 objval = response.text[indices[0]: indices[1]+1]
 objvalj = json.loads(objval)
-
+print(objvalj['x'])
 def game(request):
     context={
         "obj_name": objvalj['object_name'],
         "image": "{% static 'vllmpage/images/dummy.jpg' %}",
-        "x":objvalj['x'],
-        "y":objvalj['y'],
+        "xcoord":objvalj['x'],
+        "ycoord":objvalj['y'],
     }
 
     return render(request, "vllmpage/game.html", context)
