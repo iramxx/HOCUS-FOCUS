@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Dummy target in image-pixel coordinates (would come from API)
     
     
-    const img = document.getElementById('scene');
     const target = { x: xcoord, y: ycoord};
     console.log(target.x, target.y);
     
@@ -20,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
       canvas.width = scene.clientWidth;
       canvas.height = scene.clientHeight;
     }
-    scene.addEventListener('load', resizeCanvas);
+    // scene.addEventListener('load', resizeCanvas);
     window.addEventListener('resize', resizeCanvas);
   
     // Map image-space px to rendered-space px
@@ -33,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize target overlay
     function createTargetDiv() {
       const pos = toRenderCoords(target.x, target.y);
-      const size = 20; // hit area size
+      const size = 30; // hit area size
       targetDiv = document.createElement('div');
       Object.assign(targetDiv.style, {
         position: 'absolute',
@@ -58,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Draw a hint circle of given radius
     function drawHint(radius) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const pos = toRenderCoords(target.x, target.y);
+      const pos = toRenderCoords(target.x-radius, target.y);
       ctx.strokeStyle = 'rgba(255,0,0,0.6)';
       ctx.lineWidth = 4;
       ctx.beginPath();
@@ -97,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
     // Kick off
-    resizeCanvas();
+    // resizeCanvas();
     createTargetDiv();
   });
   

@@ -76,7 +76,7 @@ html, body {
 } */
 
 .game-container .game-image-area {
-  height: calc(100vh - 80px); /* fit under the top bar */
+  /* height: calc(100vh - 80px); fit under the top bar */
   position: relative;
   overflow: hidden;
   display: flex;
