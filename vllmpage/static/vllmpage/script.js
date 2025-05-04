@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
     const img = document.getElementById('scene');
-    const target = { x: xcoord * img.naturalWidth, y: ycoord * img.naturalHeight};
+    const target = { x: xcoord, y: ycoord};
     console.log(target.x, target.y);
     
     let misses = 0;
@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Map image-space px to rendered-space px
     function toRenderCoords(imgX, imgY) {
-      const scaleX = scene.clientWidth / scene.naturalWidth;
-      const scaleY = scene.clientHeight / scene.naturalHeight;
+      const scaleX = scene.clientWidth;
+      const scaleY = scene.clientHeight;
       return { x: imgX * scaleX, y: imgY * scaleY };
     }
   

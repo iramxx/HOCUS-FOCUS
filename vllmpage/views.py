@@ -4,13 +4,15 @@ from google import genai
 import json
 import random as rand
 import os
-from django.templatetags.static import static
 
 def home(request):
     return render(request, "vllmpage/home.html")
 
 
-
+generation_config = genai.types.GenerationConfig(
+    temperature=0.8,  # Higher values (e.g., 0.7-0.9) make the output more random
+    top_p=0.9         # Higher values (e.g., 0.8-0.95) consider a broader set of likely tokens
+)
 
 def game(request):
     
@@ -33,12 +35,11 @@ def game(request):
             mime_type=f'image/{img_type}',
             ),
             """Give ONE random object from this image alongside it's coordinate of the center of the box in a json format. 
-            The coordinates should be given as ratios of the image's dimensions.
+            The coordinates should be given as pixel coordinations.
             Use this JSON schema:
 
             {'object_name': str, 'x': float, 'y': float}"""
-        ],
-        
+        ]
     )
 
     indices = []
